@@ -24,7 +24,7 @@ export default class Booking extends BaseEntity {
     @ManyToOne(() => Table, (table) => table.bookings, {
         cascade: ['update', 'remove']
     })
-    table: number;
+    table: Table;
 
     @ManyToOne(() => User, (user) => user.bookings, {
         cascade: ['update', 'remove']

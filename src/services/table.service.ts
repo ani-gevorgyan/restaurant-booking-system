@@ -22,15 +22,23 @@ class TableService {
             capacity += 1;
             table = await this.getAvailableTableByCapacity(capacity);
             if (availableTables && capacity > table.capacity) {
-                throw new NotFoundError('No tables with the given quantity are available!');
+                throw new NotFoundError('No tables with the given quantity are available!')
             }
         }
 
         return table;
     }
 
-    async updateTable(tableData: Table): Promise<Table> {
-        return Table.merge(tableData, { isAvailable: false }).save();
+    async updateTableAvailability(tableData: Table): Promise<Table> {
+        return Table.merge(tableData, { isAvailable: !tableData.isAvailable }).save();
+    }
+
+    async getTableById(id: number): Promise<Table> {
+        const table = await Table.findOne({ id });
+        if (!table) {
+            throw new NotFoundError();
+        }
+        return table;
     }
 }
 

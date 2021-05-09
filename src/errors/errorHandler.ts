@@ -12,7 +12,7 @@ const errorHandler = async (error: Error, req: Request, res: Response, next: Nex
     message = error.getErrorData().message;
   }
 
-  if (error instanceof NotFoundError) {
+  if (error instanceof NotFoundError && error.message !== 'Not Found') {
     return res.status(200).json({ message: error.getErrorData().message });
   }
 

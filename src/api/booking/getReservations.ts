@@ -6,21 +6,13 @@ import { RequestWithUser } from '../../interfaces';
 
 const router: Router = Router();
 
-router.post('/booking',
+router.get('/bookings',
     asyncMiddlewareWrapper(requireToBeAuthenticated),
     asyncMiddlewareWrapper(async (req: RequestWithUser, res: Response) => {
-        const { capacity, dateTime, phoneNumber, email, name } = req.body;
         const userId = req.user.id;
-        const bookingData = {
-            capacity,
-            dateTime,
-            phoneNumber,
-            email,
-            name,
-            userId
-        }
-        const booking = await bookingService.addReservation(bookingData);
-        res.status(200).json({ booking });
-    }));
+        const bookings = await bookingService.getReservationsByUserId(userId);
+        res.status(200).json({ bookings });
+    })
+);
 
 export default router;

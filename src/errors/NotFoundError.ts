@@ -1,10 +1,10 @@
 import AppError from './AppError';
 import ErrorData from './ErrorData';
 
-interface NotFoundErrorData extends ErrorData {}
+interface NotFoundErrorData extends ErrorData { }
 
 export class NotFoundError extends AppError {
-  constructor(message: string) {
+  constructor(message = 'Not Found') {
     super(404, message);
   }
 
