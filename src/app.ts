@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import { BASE_URL } from './constants';
 import authRouter from './api/auth';
+import bookingRouter from './api/booking';
 import errorHandler from './errors/errorHandler';
 
 async function initializeApp(): Promise<Application> {
@@ -9,6 +10,7 @@ async function initializeApp(): Promise<Application> {
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.use(BASE_URL, authRouter);
+    app.use(BASE_URL, bookingRouter);
 
     app.get('/', (req: Request, res: Response) => {
         res.status(200).send('Welcome to Restaurant Booking System!');

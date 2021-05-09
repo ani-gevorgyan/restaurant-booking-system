@@ -28,6 +28,11 @@ export class CreateMealsTable1620406728748 implements MigrationInterface {
                         name: 'category',
                         type: 'enum',
                         enum: ['DRINKS', 'HOT_DISHES', 'DESERTS', 'SALADS']
+                    },
+                    {
+                        name: 'price',
+                        type: 'varchar',
+                        length: '255'
                     }
                 ]
             })

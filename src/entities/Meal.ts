@@ -16,4 +16,7 @@ export default class Meal extends BaseEntity {
 
     @Column()
     catgeory: Type;
+
+    @Column()
+    price: string;
 }

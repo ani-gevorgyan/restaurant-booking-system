@@ -7,3 +7,5 @@ export enum Type {
     DESERTS = 'DESERTS',
     SALADS = 'SALADS'
 }
+
+export const MAX_CAPACITY = 10;

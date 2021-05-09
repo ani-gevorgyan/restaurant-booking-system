@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, TableForeignKey, QueryRunner, Table } from "typeorm";
 
 export class CreateTablesTable1620388745890 implements MigrationInterface {
 
@@ -15,17 +15,18 @@ export class CreateTablesTable1620388745890 implements MigrationInterface {
                         generationStrategy: 'increment'
                     },
                     {
-                        name: 'table_number',
-                        type: 'int',
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255'
                     },
                     {
-                        name: 'number_of_people',
+                        name: 'capacity',
                         type: 'int'
                     },
                     {
-                        name: 'occupied',
+                        name: 'is_available',
                         type: 'boolean'
-                    }
+                    },
                 ]
             })
         )

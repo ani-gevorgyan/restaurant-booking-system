@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export interface UserRegistrationData {
     email: string;
     firstName: string;
@@ -15,4 +17,10 @@ export interface UserRegistrationResponse {
 export interface UserLoginData {
     email: string;
     password: string;
+}
+
+export interface RequestWithUser extends Request {
+    user: {
+        id: number
+    }
 }
