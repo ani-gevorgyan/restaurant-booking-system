@@ -41,4 +41,13 @@ The server will reload if you make edits.<br />
 #### https://www.getpostman.com/collections/caaaf83009949ac92348
 
 
+## Running Tests
+
+#### Create new database for testing `booking_system_testing`
+
+#### Run the migrations
+### `npm run test`
+
+Runs tests
+
 

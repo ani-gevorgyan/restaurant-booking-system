@@ -9,6 +9,7 @@ export interface UserRegistrationData {
 }
 
 export interface UserRegistrationResponse {
+    id: number;
     email: string;
     firstName: string;
     lastName: string;
