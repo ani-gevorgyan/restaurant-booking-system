@@ -36,5 +36,9 @@ Runs the app in the development mode on port 4000.<br />
 
 The server will reload if you make edits.<br />
 
+## Postman link
+
+#### https://www.getpostman.com/collections/caaaf83009949ac92348
+
 
 
