@@ -3,6 +3,7 @@ import tableService from './table.service';
 import bookingService from './booking.service';
 import TableMealRef from '../entities/TableMealRef';
 import Table from '../entities/Table';
+import Meal from '../entities/Meal';
 
 class MealService {
 
@@ -24,6 +25,21 @@ class MealService {
 
     async getTableMealsRefByTableId(tableId: number): Promise<TableMealRef[]> {
         return TableMealRef.find({ tableId });
+    }
+
+    async getMeals(): Promise<Meal[]> {
+        return Meal.find();
+    }
+
+    async updatePreorderMealForABooking(bookingId: number, meals: number[]): Promise<Table> {
+        const booking = await bookingService.getBookingById(bookingId);
+        await this.deleteTableMeals(booking.table.id);
+        return tableService.addTablePreorderMeal(booking.table, meals);
+    }
+
+    async deletePreorderMeals(bookingId: number): Promise<void> {
+        const booking = await bookingService.getBookingById(bookingId);
+        await this.deleteTableMeals(booking.table.id);
     }
 }
 
