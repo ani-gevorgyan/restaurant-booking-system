@@ -1,6 +1,7 @@
 import Table from '../entities/Table';
 import NotFoundError from '../errors/NotFoundError';
 import { MAX_CAPACITY } from '../constants';
+import TableMealRef from '../entities/TableMealRef';
 
 class TableService {
 
@@ -30,8 +31,14 @@ class TableService {
     }
 
     async updateTableAvailability(tableData: Table): Promise<Table> {
-        return Table.merge(tableData, { isAvailable: !tableData.isAvailable }).save();
+        const availability = await Table.merge(tableData, { isAvailable: !tableData.isAvailable }).save();
+        return availability;
     }
+
+    async addTablePreorderMeal(table: Table, mealsData: number[]): Promise<Table> {
+        const mealIds = this.generateTableMealIds(mealsData);
+        return Table.merge(table, { mealIds }).save();
+    };
 
     async getTableById(id: number): Promise<Table> {
         const table = await Table.findOne({ id });
@@ -39,6 +46,17 @@ class TableService {
             throw new NotFoundError();
         }
         return table;
+    }
+
+    generateTableMealIds(mealIdsData: number[]): TableMealRef[] {
+        return mealIdsData.map((mealId) => this.generateTableMealId(mealId))
+    }
+
+    generateTableMealId(mealId: number): TableMealRef {
+        const tableMealRef = new TableMealRef();
+        tableMealRef.mealId = mealId;
+
+        return tableMealRef;
     }
 }
 

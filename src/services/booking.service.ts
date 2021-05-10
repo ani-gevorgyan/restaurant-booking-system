@@ -3,6 +3,7 @@ import tableService from './table.service';
 import Table from '../entities/Table';
 import { ReservationData, BookingData, ReservationUpdateData } from '../interfaces';
 import NotFoundError from '../errors/NotFoundError';
+import mealService from './meal.service';
 
 class BookingService {
 
@@ -18,8 +19,10 @@ class BookingService {
     }
 
     async deleteReservation(id: number): Promise<void> {
-        await this.getBookingById(id);
+        const booking = await this.getBookingById(id);
         await Booking.delete(id);
+        await tableService.updateTableAvailability(booking.table);
+        await mealService.deleteTableMeals(booking.table.id);
     }
 
     async updateBooking(reservationUpdateData: ReservationUpdateData): Promise<Booking> {
@@ -28,11 +31,12 @@ class BookingService {
         let table;
         if (capacity) {
             table = await this.assignTable(capacity);
+            await mealService.updateTableIdForMeals(booking.table.id, table);
+            await tableService.updateTableAvailability(booking.table);
         }
         const bookingData = { ...reservationUpdateData, table };
 
         const updatedBooking = await Booking.merge(booking, bookingData).save();
-        await tableService.updateTableAvailability(booking.table);
         await tableService.updateTableAvailability(updatedBooking.table);
         return updatedBooking;
     }
@@ -42,8 +46,6 @@ class BookingService {
         if (!booking) {
             throw new NotFoundError();
         }
-
-        await tableService.updateTableAvailability(booking.table);
 
         return booking;
     }

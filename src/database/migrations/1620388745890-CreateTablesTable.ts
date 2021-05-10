@@ -26,7 +26,7 @@ export class CreateTablesTable1620388745890 implements MigrationInterface {
                     {
                         name: 'is_available',
                         type: 'boolean'
-                    },
+                    }
                 ]
             })
         )

@@ -1,5 +1,5 @@
 import {
-    Entity, BaseEntity, PrimaryColumn, Column, Unique,
+    Entity, BaseEntity, PrimaryColumn, Column, ManyToMany,
 } from 'typeorm';
 import { Type } from '../constants';
 

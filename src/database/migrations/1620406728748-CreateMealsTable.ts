@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, TableForeignKey, QueryRunner, Table } from "typeorm";
 
 export class CreateMealsTable1620406728748 implements MigrationInterface {
 
@@ -33,7 +33,7 @@ export class CreateMealsTable1620406728748 implements MigrationInterface {
                         name: 'price',
                         type: 'varchar',
                         length: '255'
-                    }
+                    },
                 ]
             })
         )
