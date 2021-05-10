@@ -45,9 +45,8 @@ The server will reload if you make edits.<br />
 
 #### Create new database for testing `booking_system_testing`
 
-#### Run the migrations
-### `npm run test`
+#### Run the migrations `npm run typeorm migration:run`
+###  Run Tests `npm run test`
 
-Runs tests
 
 
