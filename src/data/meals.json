@@ -1,0 +1,52 @@
+{
+    "meals": [
+        {
+            "title": "Fried Chiken",
+            "description": "Chicken fried in an oil with seedings",
+            "category": "HOT_DISHES",
+            "price": "$10"
+        },
+        {
+            "title": "Pizza Margarita",
+            "description": "Pizza wth tomatoes and cheese",
+            "category": "HOT_DISHES",
+            "price": "$20"
+        },
+        {
+            "title": "Ceasar",
+            "description": "Salad with chicken lettuce tomatoes and other vegetables",
+            "category": "SALADS",
+            "price": "$12"
+        },
+        {
+            "title": "Brownie",
+            "description": "Chocolate cake, served with ice cream",
+            "category": "DESERTS",
+            "price": "$8"
+        },
+        {
+            "title": "Cheese Cake",
+            "description": "A cake with Cheese on top",
+            "category": "DESERTS",
+            "price": "$7"
+        },
+        {
+            "title": "Lemonade",
+            "description": "Homemade citrus lemonade",
+            "category": "DRINKS",
+            "price": "$5"
+        },
+        {
+            "title": "Tea",
+            "description": "Black/Green/White tea",
+            "category": "DRINKS",
+            "price": "$4"
+        },
+        {
+            "title": "Coffee",
+            "description": "Black/Capuccino/Latte/Americano",
+            "category": "DRINKS",
+            "price": "$4"
+        }        
+    ]
+}

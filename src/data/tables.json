@@ -1,0 +1,69 @@
+{
+    "tables": [
+        {
+            "name": "Table 1",
+            "capacity": 4,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 2",
+            "capacity": 2,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 3",
+            "capacity": 6,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 4",
+            "capacity": 4,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 5",
+            "capacity": 7,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 6",
+            "capacity": 2,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 7",
+            "capacity": 2,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 8",
+            "capacity": 3,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 9",
+            "capacity": 5,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 10",
+            "capacity": 4,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 11",
+            "capacity": 3,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 12",
+            "capacity": 5,
+            "isAvailable": true
+          },
+          {
+            "name": "Table 13",
+            "capacity": 2,
+            "isAvailable": true
+          }
+    ]
+}
