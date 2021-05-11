@@ -43,7 +43,7 @@ The server will reload if you make edits.<br />
 
 ## Running Tests
 
-### Add `.env.test` file in the root directory
+#### Add `.env.test` file in the root directory
 
 #### Create new database for testing `booking_system_testing`
 
